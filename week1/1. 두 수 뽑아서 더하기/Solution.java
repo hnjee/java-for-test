@@ -1,7 +1,8 @@
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 
-public class Solution{
+class Solution{
     public int[] solution(int[] numbers) {
         HashSet<Integer> set = new HashSet<>();
         for(int i=0; i<numbers.length; i++){
@@ -10,9 +11,10 @@ public class Solution{
             }
         }
 
-        int[] answer = new int[hashMap.size()];
+        int[] answer = new int[set.size()];
         int index = 0;
-        for(int key : hashMap.keySet()) answer[index++] = key;
+        Iterator<Integer> iter = set.iterator();
+        while(iter.hasNext()) answer[index++]=iter.next();
         Arrays.sort(answer);
 
         return answer;
